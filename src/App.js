@@ -9,15 +9,20 @@ async function  connectToMetamask() {
   const accounts = await provider.send("eth_requestAccounts", []);
   this.setState({ selectedAddress: accounts[0] })
 }
+
 const multi_send=async(addresses,amount)=>{
   try{
     const Addresses_array=addresses.split(",");
-    const amount_list_array=amount.split(",");
+   // const amount_list_array=amount.split(",");
+    let amount_array=[];
+    for(let i=0;i<=Addresses_array.length;i++){
+      amount_array.push(amount+"000000000000000000");
+      }
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const address = "0xeA90ccC65D86Cb2549567368C1d4841FFd1B89DC";
     const signer = provider.getSigner();
     const contract = new ethers.Contract(address, abi, signer);   
-    const tx = await contract.functions._multiSendToken(address,Addresses_array,amount_list_array);
+    const tx = await contract.functions._multiSendToken(address,Addresses_array,amount_array);
     const receipt = await tx.wait();
     console.log("receipt", receipt);
     alert("sent")
@@ -55,7 +60,7 @@ function App() {
         />
       </label>
       <br></br>
-      <label>Enter List of amount:
+      <label>Enter Single Amount:
         <input
           type="text" 
           value={amount_list}
