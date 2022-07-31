@@ -54,6 +54,7 @@ function App() {
           onChange={(e) => set_addressess(e.target.value)}
         />
       </label>
+      <br></br>
       <label>Enter List of amount:
         <input
           type="text" 
