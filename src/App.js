@@ -42,6 +42,10 @@ function App() {
  
 
   return (
+    <>
+   <h2>
+    Bistols- Multi Sender
+   </h2>
     <form>
       <label>Enter List of Wallet Address:
         <input
@@ -60,6 +64,10 @@ function App() {
       <input type="button"  value={"sendd"} onClick={handleSubmit} />
       <input type="button" value={"connect"} placeholder='Connect Wallet ' onClick={connectToMetamask} />
     </form>
+    <h7>
+      Developed by enoch Daniel
+    </h7>
+    </>
   );
 }
 
