@@ -122,14 +122,19 @@ function App() {
       <label> Change network to arbitrum </label>
       <input type="button"  value={"sendd"} onClick={handleSubmit} />
       </div>
-      //send pebbles Arbitrum
-      <di>
+      <br></br>
+      <br></br>
+      <br></br>
+      {/* //send pebbles Arbitrum */}
+      <div>
       <label> Change network to arbitrum </label>
       <input type="button"  value={"send pebbles Arbi "} onClick={handleSubmit_pebbles_arbi} />
-      </di>
+      </div>
+      <br></br>
+      <br></br>
       <br></br>
       <label> Change network to Cronos </label>
-      //send pebbles cronos
+      {/* //send pebbles cronos */}
       <input type="button"  value={"send pebble Cronos"} onClick={handleSubmit_pebbles_cronos} />
 
       <input type="button" value={"connect"} placeholder='Connect Wallet ' onClick={connectToMetamask} />
