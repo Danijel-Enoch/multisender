@@ -31,6 +31,48 @@ const multi_send=async(addresses,amount)=>{
   }
  
 }
+const multi_send_pebbles_arbitrum=async(addresses,amount)=>{
+  try{
+    const Addresses_array=addresses.split(",");
+   // const amount_list_array=amount.split(",");
+    let amount_array=[];
+    for(let i=0;i<=Addresses_array.length;i++){
+      amount_array.push(amount+"000000000000000000");
+      }
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const address = "0x4242467BcAB6893929e0F1c1544C2fcEdCAeB60e";
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(address, abi, signer);   
+    const tx = await contract.functions._multiSendToken(address,Addresses_array,amount_array);
+    const receipt = await tx.wait();
+    console.log("receipt", receipt);
+    alert("sent")
+  }catch(error){
+    console.log(error)
+  }
+ 
+}
+const multi_send_pebbles_cronos=async(addresses,amount)=>{
+  try{
+    const Addresses_array=addresses.split(",");
+   // const amount_list_array=amount.split(",");
+    let amount_array=[];
+    for(let i=0;i<=Addresses_array.length;i++){
+      amount_array.push(amount+"000000000000000000");
+      }
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const address = "0x5f9b46A71BbcCa6159E6dc901D1660f8c9144376";
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(address, abi, signer);   
+    const tx = await contract.functions._multiSendToken(address,Addresses_array,amount_array);
+    const receipt = await tx.wait();
+    console.log("receipt", receipt);
+    alert("sent")
+  }catch(error){
+    console.log(error)
+  }
+ 
+}
 
 function App() {
   const [addresses, set_addressess] = useState("");
@@ -42,6 +84,12 @@ function App() {
     // alert(`The name you entered was: ${amount_list}`)
   }
 
+  const handleSubmit_pebbles_cronos = (event) => {
+    multi_send_pebbles_cronos(addresses,amount_list)
+  }
+  const handleSubmit_pebbles_arbi = (event) => {
+    multi_send_pebbles_arbitrum(addresses,amount_list)
+  }
   
 
  
@@ -67,7 +115,23 @@ function App() {
           onChange={(e) => set_amount_list(e.target.value)}
         />
       </label>
+      <div>
+        <label>
+          Change network to cronos or arbitrum to send
+        </label>
+      <label> Change network to arbitrum </label>
       <input type="button"  value={"sendd"} onClick={handleSubmit} />
+      </div>
+      //send pebbles Arbitrum
+      <di>
+      <label> Change network to arbitrum </label>
+      <input type="button"  value={"send pebbles Arbi "} onClick={handleSubmit_pebbles_arbi} />
+      </di>
+      <br></br>
+      <label> Change network to Cronos </label>
+      //send pebbles cronos
+      <input type="button"  value={"send pebble Cronos"} onClick={handleSubmit_pebbles_cronos} />
+
       <input type="button" value={"connect"} placeholder='Connect Wallet ' onClick={connectToMetamask} />
     </form>
     <h7>
