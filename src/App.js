@@ -12,7 +12,7 @@ async function  connectToMetamask() {
 
 const multi_send=async(addresses,amount)=>{
   try{
-    const Addresses_array=addresses.split(",");
+    const Addresses_array=addresses.split(",\n");
    // const amount_list_array=amount.split(",");
     let amount_array=[];
     for(let i=0;i<=Addresses_array.length;i++){
@@ -25,6 +25,7 @@ const multi_send=async(addresses,amount)=>{
     const tx = await contract.functions._multiSendToken(address,Addresses_array,amount_array);
     const receipt = await tx.wait();
     console.log("receipt", receipt);
+    console.log(Addresses_array)
     alert("sent")
   }catch(error){
     console.log(error)
@@ -33,7 +34,7 @@ const multi_send=async(addresses,amount)=>{
 }
 const multi_send_pebbles_arbitrum=async(addresses,amount)=>{
   try{
-    const Addresses_array=addresses.split(",");
+    const Addresses_array=addresses.split(",\n");
    // const amount_list_array=amount.split(",");
     let amount_array=[];
     for(let i=0;i<=Addresses_array.length;i++){
@@ -54,7 +55,7 @@ const multi_send_pebbles_arbitrum=async(addresses,amount)=>{
 }
 const multi_send_pebbles_cronos=async(addresses,amount)=>{
   try{
-    const Addresses_array=addresses.split(",");
+    const Addresses_array=addresses.split(",\n");
    // const amount_list_array=amount.split(",");
     let amount_array=[];
     for(let i=0;i<=Addresses_array.length;i++){
@@ -101,20 +102,21 @@ function App() {
    </h2>
     <form>
       <label>Enter List of Wallet Address:
-        <input
-          type="text" 
+        <textarea
+          // type="textarea"
           value={addresses}
           onChange={(e) => set_addressess(e.target.value)}
         />
       </label>
       <br></br>
-      <label>Enter Single Amount:
+      <label>Enter Single Amount:  </label>
+        <br></br>
         <input
           type="text" 
           value={amount_list}
           onChange={(e) => set_amount_list(e.target.value)}
         />
-      </label>
+    
       <div>
         <label>
           Change network to cronos or arbitrum to send
