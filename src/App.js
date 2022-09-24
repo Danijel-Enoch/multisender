@@ -12,7 +12,7 @@ async function  connectToMetamask() {
 
 const multi_send=async(addresses,amount)=>{
   try{
-    const Addresses_array=addresses.split(",\n");
+    const Addresses_array=addresses.split("\n");
    // const amount_list_array=amount.split(",");
     let amount_array=[];
     for(let i=0;i<=Addresses_array.length;i++){
