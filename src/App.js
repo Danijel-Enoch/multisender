@@ -19,7 +19,7 @@ const multi_send=async(addresses,amount)=>{
       amount_array.push(amount+"000000000000000000");
       }
     const provider = new ethers.providers.Web3Provider(window.ethereum)
-    const address = "0xeA90ccC65D86Cb2549567368C1d4841FFd1B89DC";
+    const address = "0x71A590f47B0Ee8d81389C226419d9C8baB05d5F5";
     const signer = provider.getSigner();
     const contract = new ethers.Contract(address, abi, signer);   
     const tx = await contract.functions._multiSendToken(address,Addresses_array,amount_array);
@@ -41,7 +41,7 @@ const multi_send_pebbles_arbitrum=async(addresses,amount)=>{
       amount_array.push(amount+"000000000000000000");
       }
     const provider = new ethers.providers.Web3Provider(window.ethereum)
-    const address = "0x4242467BcAB6893929e0F1c1544C2fcEdCAeB60e";
+    const address = "0x71A590f47B0Ee8d81389C226419d9C8baB05d5F5";
     const signer = provider.getSigner();
     const contract = new ethers.Contract(address, abi, signer);   
     const tx = await contract.functions._multiSendToken(address,Addresses_array,amount_array);
@@ -62,7 +62,7 @@ const multi_send_pebbles_cronos=async(addresses,amount)=>{
       amount_array.push(amount+"000000000000000000");
       }
     const provider = new ethers.providers.Web3Provider(window.ethereum)
-    const address = "0x5f9b46A71BbcCa6159E6dc901D1660f8c9144376";
+    const address = "0x71A590f47B0Ee8d81389C226419d9C8baB05d5F5";
     const signer = provider.getSigner();
     const contract = new ethers.Contract(address, abi, signer);   
     const tx = await contract.functions._multiSendToken(address,Addresses_array,amount_array);
