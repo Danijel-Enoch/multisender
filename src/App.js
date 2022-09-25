@@ -18,7 +18,7 @@ const multi_send=async(addresses,amount)=>{
     for(let i=0;i<=Addresses_array.length;i++){
       amount_array.push(amount+"000000000000000000");
       }
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
+   const provider=new ethers.providers.JsonRpcProvider("https://evm.cronos.org")
     const address = "0x71A590f47B0Ee8d81389C226419d9C8baB05d5F5";
     const signer = provider.getSigner();
     const contract = new ethers.Contract(address, abi, signer);   
@@ -40,7 +40,7 @@ const multi_send_pebbles_arbitrum=async(addresses,amount)=>{
     for(let i=0;i<=Addresses_array.length;i++){
       amount_array.push(amount+"000000000000000000");
       }
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const provider=new ethers.providers.JsonRpcProvider("https://evm.cronos.org")
     const address = "0x71A590f47B0Ee8d81389C226419d9C8baB05d5F5";
     const signer = provider.getSigner();
     const contract = new ethers.Contract(address, abi, signer);   
@@ -61,7 +61,7 @@ const multi_send_pebbles_cronos=async(addresses,amount)=>{
     for(let i=0;i<=Addresses_array.length;i++){
       amount_array.push(amount+"000000000000000000");
       }
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const provider=new ethers.providers.JsonRpcProvider("https://evm.cronos.org")
     const address = "0x71A590f47B0Ee8d81389C226419d9C8baB05d5F5";
     const signer = provider.getSigner();
     const contract = new ethers.Contract(address, abi, signer);   
