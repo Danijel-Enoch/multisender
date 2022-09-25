@@ -34,7 +34,7 @@ const multi_send=async(addresses,amount)=>{
 }
 const multi_send_pebbles_arbitrum=async(addresses,amount)=>{
   try{
-    const Addresses_array=addresses.split(",\n");
+    const Addresses_array=addresses.split("\n");
    // const amount_list_array=amount.split(",");
     let amount_array=[];
     for(let i=0;i<=Addresses_array.length;i++){
@@ -55,7 +55,7 @@ const multi_send_pebbles_arbitrum=async(addresses,amount)=>{
 }
 const multi_send_pebbles_cronos=async(addresses,amount)=>{
   try{
-    const Addresses_array=addresses.split(",\n");
+    const Addresses_array=addresses.split("\n");
    // const amount_list_array=amount.split(",");
     let amount_array=[];
     for(let i=0;i<=Addresses_array.length;i++){
